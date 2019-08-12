@@ -8,7 +8,7 @@ server.get('/', (req,res) => {
   // Parametros URL
   let name = req.query.name || 'Fulano';
 
-  return res.json({message:`Hello ${name}`});
+  return res.json({message:`Olá ${name}`});
   //return res.send(`Hello ${name}`);
 });
 
