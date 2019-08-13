@@ -9,6 +9,29 @@ const DEV = require('../models/Dev');
 // DELETE
 
 module.exports = {
+
+  async index(req, res){
+    const { user } = req.headers;
+
+    // Usuário logado
+    const loggedDev = await DEV.findById(user);
+
+    // Buscar todos os usuarios:
+    // Não seja o usuário logado
+    // Não seja usuário que ja deu like
+    // Não seja usuário que ja deu dislike
+    const users = await DEV.find({
+      // Filter AND
+      $and: [
+        { _id: { $ne: user} }, // not equals -> Todos id que não seja igual "user"
+        { _id: { $nin: loggedDev.devLikes}}, // not in -> Todos usuários que não esteja no "devLikes"
+        { _id: { $nin: loggedDev.devDislikes}}, // Todos usuários que não esteja no "devDislikes"
+      ]
+    });
+
+    return res.json(users);
+  },
+
   async store(req, res) {
     const { username } = req.body;
 
