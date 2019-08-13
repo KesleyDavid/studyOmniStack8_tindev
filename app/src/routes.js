@@ -2,6 +2,8 @@ const express = require('express');
 
 const routes = express.Router();
 
+const DEVcontroller = require('./controllers/DEVcontroller');
+
 // --------------------------------------------------------- GET POST PUT DELETE
 
 routes.get('/', (req,res) => {
@@ -9,9 +11,6 @@ routes.get('/', (req,res) => {
   return res.json({message:`Olá ${name}`});
 });
 
-routes.post('/devs', (req,res) => {
-  console.log(req.body);
-  return res.json({message: req.body});
-});
+routes.post('/devs', DEVcontroller.store);
 
 module.exports = routes;
