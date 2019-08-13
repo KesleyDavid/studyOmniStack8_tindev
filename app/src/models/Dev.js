@@ -23,4 +23,4 @@ const DevSchema = new Schema({
 // model()
 // Nome Model -> 'DEV'
 // Nome Schema 
-module.exports = model('DEV', DevSchema);
+module.exports = model('Dev', DevSchema);

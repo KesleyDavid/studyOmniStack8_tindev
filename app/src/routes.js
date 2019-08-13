@@ -2,7 +2,7 @@ const express = require('express');
 
 const routes = express.Router();
 
-const DEVcontroller = require('./controllers/DEVcontroller');
+const DEVcontroller = require('./controllers/DevController');
 
 // --------------------------------------------------------- GET POST PUT DELETE
 
