@@ -3,7 +3,7 @@ const routes = require('./routes');
 
 const server = express();
 
-// Avisar Express que os dados serão json
+// Avisar Express que os dados serão
 server.use(express.json());
 
 server.use(routes);
