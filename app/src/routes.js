@@ -13,5 +13,10 @@ routes.get('/', (req,res) => {
   return res.json({message:`Olá ${name}`});
 });
 
+routes.post('/devs', (req,res) => {
+  console.log(req.body);
+
+  return res.json({message: req.body});
+});
 // Exportar alguma informação
 module.exports = routes;
