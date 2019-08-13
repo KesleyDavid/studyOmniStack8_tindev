@@ -1,5 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 const routes = require('./routes');
 
 const server = express();
@@ -9,6 +11,8 @@ mongoose.connect('mongodb+srv://kdfsoftware:kdfSoftware@cluster0-7wpct.mongodb.n
   useNewUrlParser: true
 });
 
+// Habilita CORS
+server.use(cors());
 // Avisar Express que os dados serão
 server.use(express.json());
 server.use(routes);
