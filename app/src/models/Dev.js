@@ -14,7 +14,19 @@ const DevSchema = new Schema({
   devAvatar: {
     type: String,
     required: true,
-  }
+  },
+  // devLikes: [] -> Serão varios -> Armazena o Id do usuário que deu um like
+  // Se fosse devLikes: {} -> seria apenas um, e o array significa varios
+  devLikes: [{
+    // ID do item na coleção do mongo
+    type: Schema.Types.ObjectId, 
+    // Relaciona com Coleção "Deb"
+    ref: 'Dev'
+  }],
+  devDislikes: [{
+    type: Schema.Types.ObjectId, 
+    ref: 'Dev'
+  }],
 },{
   timestamps: true,
   // Criar createdAt e updatedAt automático

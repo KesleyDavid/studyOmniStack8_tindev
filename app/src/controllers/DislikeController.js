@@ -27,13 +27,9 @@ module.exports = {
       // 400 bad request -> alguma informação enviada não está correta
       return res.status(400).json({error: 'Dev not exists'});
     }
-
-    if (targetDev.devLikes.includes(loggedDev._id)) {
-      console.log('DEU MATCH');
-    }
     
     // Add userId dentro do usuário a ser dado like/dislike no array "devLikes"
-    loggedDev.devLikes.push(targetDev._id);
+    loggedDev.devDislikes.push(targetDev._id);
 
     await loggedDev.save();
 

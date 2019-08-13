@@ -1,6 +1,13 @@
 const axios = require('axios');
 const DEV = require('../models/Dev');
 
+// controller nÃo pode ter mais do que os 5 metodos fundamentais
+// INDEX - listagem
+// SHOW - retornar um
+// STORE - add
+// UPDATE
+// DELETE
+
 module.exports = {
   async store(req, res) {
     const { username } = req.body;
