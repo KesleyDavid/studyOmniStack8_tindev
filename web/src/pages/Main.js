@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function Main() {
+// match -> todos os parametros que foram passados para a rota
+// Acessar -> match.params.id
+export default function Main( {match} ) {
   return (
-    <h1>Main</h1>
+    <h1>{match.params.id}</h1>
   )
 }
